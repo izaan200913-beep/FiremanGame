@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://fftg0mfacwxh"]
+
+[ext_resource type="Texture2D" uid="uid://b7w5rr6v5ojy" path="res://Assets/Sprites/Cards.png" id="1_3p273"]
+[ext_resource type="Texture2D" uid="uid://bj3fui4lju58r" path="res://Assets/Sprites/Cards2.png" id="1_h8wm0"]
+[ext_resource type="Script" uid="uid://bex8la5135ap6" path="res://Scripts/CardScript.gd" id="2_h8wm0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kphy1"]
+atlas = ExtResource("1_h8wm0")
+region = Rect2(0, 0, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p273"]
+atlas = ExtResource("1_3p273")
+region = Rect2(960, 0, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8wm0"]
+atlas = ExtResource("1_h8wm0")
+region = Rect2(960, 0, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m7nw"]
+atlas = ExtResource("1_3p273")
+region = Rect2(480, 0, 480, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wejov"]
+atlas = ExtResource("1_h8wm0")
+region = Rect2(480, 0, 480, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kphy1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kphy1")
+}],
+"loop": true,
+"name": &"Barrage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p273")
+}],
+"loop": false,
+"name": &"FireRate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8wm0")
+}],
+"loop": true,
+"name": &"Health",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m7nw")
+}],
+"loop": false,
+"name": &"Piercing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wejov")
+}],
+"loop": true,
+"name": &"Speed",
+"speed": 5.0
+}]
+
+[node name="Card" type="AnimatedSprite2D" unique_id=860977814]
+sprite_frames = SubResource("SpriteFrames_kphy1")
+animation = &"Speed"
+script = ExtResource("2_h8wm0")
+metadata/_custom_type_script = "uid://bex8la5135ap6"

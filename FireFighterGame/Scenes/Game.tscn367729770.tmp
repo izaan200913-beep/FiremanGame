@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://b8rcpbe56d0fq"]
+
+[ext_resource type="PackedScene" uid="uid://u2f87h80o5dr" path="res://Scenes/Player.tscn" id="1_iukft"]
+[ext_resource type="Script" uid="uid://5h6y8vflehp5" path="res://Scripts/Game.gd" id="1_j5yw3"]
+[ext_resource type="Script" uid="uid://c8vmjcyyamqix" path="res://Scripts/RobotManager.gd" id="2_gl6un"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iukft"]
+bg_color = Color(0.8235294, 0.24313726, 0.24313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gl6un"]
+bg_color = Color(0.35686275, 0.8862745, 0.48235294, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kldst"]
+bg_color = Color(0.24313726, 0.8235294, 0.8235294, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2bpf"]
+bg_color = Color(0.6509804, 0.18039216, 0.34509805, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5yw3"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 120
+border_width_top = 120
+border_width_right = 120
+border_width_bottom = 120
+border_color = Color(0.9882353, 1, 0.8745098, 1)
+
+[node name="Game" type="Node2D" unique_id=154279584 node_paths=PackedStringArray("ScrapsBar", "BulletManager")]
+script = ExtResource("1_j5yw3")
+ScrapsBar = NodePath("Camera2D/Scraps")
+BulletManager = NodePath("BulletManager")
+BulletStartX = -1200.0
+DistanceBeetweenBullet = 100.0
+
+[node name="Player" parent="." unique_id=1613670136 node_paths=PackedStringArray("Bar", "BulletManager") instance=ExtResource("1_iukft")]
+Bar = NodePath("../Camera2D/Reload")
+BulletManager = NodePath("../BulletManager")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1281563626]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Reload" type="ProgressBar" parent="Camera2D" unique_id=818497961]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = 10
+offset_left = -1000.0
+offset_top = -500.0
+offset_right = -500.0
+offset_bottom = -400.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_iukft")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gl6un")
+value = 50.0
+show_percentage = false
+
+[node name="Scraps" type="ProgressBar" parent="Camera2D" unique_id=896322524]
+modulate = Color(1, 1, 1, 0.7058824)
+z_index = 10
+offset_left = 900.0
+offset_right = 1400.0
+offset_bottom = 100.0
+rotation = 4.712389
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_kldst")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b2bpf")
+max_value = 10.0
+show_percentage = false
+
+[node name="Panel" type="Panel" parent="Camera2D" unique_id=1768126940]
+z_index = 10
+z_as_relative = false
+offset_left = -1210.0
+offset_top = -710.0
+offset_right = 1210.0
+offset_bottom = 710.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5yw3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1246590750]
+z_index = -1
+offset_left = -3000.0
+offset_top = -1750.0
+offset_right = 2874.0
+offset_bottom = 1656.0
+color = Color(0.06666667, 0.039215688, 0.2509804, 1)
+
+[node name="RobotManager" type="Node2D" parent="." unique_id=1542550719]
+script = ExtResource("2_gl6un")
+StartX = 1328.0
+EndX = -1328.0
+MinY = -400.0
+MaxY = 400.0
+MinTime = 1.0
+MaxTime = 2.0
+
+[node name="BulletManager" type="Node2D" parent="." unique_id=1000044065]

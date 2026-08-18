@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d1xpsis1gd847"]
+
+[ext_resource type="Script" uid="uid://d5ii1jet7nkj" path="res://Scripts/Barrage.gd" id="1_k4qth"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4qth"]
+bg_color = Color(0.8235294, 0.24313726, 0.24313726, 0.7058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ove23"]
+bg_color = Color(0.24313726, 0.8235294, 0.8235294, 0.7058824)
+
+[node name="BarrageManager" type="Node2D" unique_id=2054667754 node_paths=PackedStringArray("CooldownBar")]
+script = ExtResource("1_k4qth")
+MinOrMaxY = 1000.0
+BulletStartX = -1200.0
+DistanceBeetweenBullet = 100.0
+Cooldown = 30.0
+CooldownBar = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=885052757]
+z_index = 10
+offset_left = -1000.0
+offset_top = -350.0
+offset_right = -700.0
+offset_bottom = -300.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k4qth")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ove23")
+value = 50.0
+show_percentage = false

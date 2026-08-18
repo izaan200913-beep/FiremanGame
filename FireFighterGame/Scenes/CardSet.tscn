@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b6s7012tjryo4"]
+
+[ext_resource type="Script" uid="uid://cla6v44n5kt5o" path="res://Scripts/CardManagerScript.gd" id="1_f1jx3"]
+[ext_resource type="PackedScene" uid="uid://fftg0mfacwxh" path="res://Scenes/Card.tscn" id="2_8jgu8"]
+[ext_resource type="Texture2D" uid="uid://wfyylhvo4gfo" path="res://Assets/Sprites/CardsButtonHelp.png" id="3_tybow"]
+[ext_resource type="Texture2D" uid="uid://cuyj1hvlr7awd" path="res://Assets/Sprites/FiremanArrow.png" id="4_31nc4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqpif"]
+atlas = ExtResource("4_31nc4")
+region = Rect2(0, 0, 100, 110)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_are6t"]
+atlas = ExtResource("4_31nc4")
+region = Rect2(100, 0, 100, 110)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8anrr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqpif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_are6t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tybow"]
+atlas = ExtResource("3_tybow")
+region = Rect2(0, 0, 430, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31nc4"]
+atlas = ExtResource("3_tybow")
+region = Rect2(430, 0, 430, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqpif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tybow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31nc4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CardSet" type="Node2D" unique_id=2137827100 node_paths=PackedStringArray("Card1", "Card2", "Card3", "Arrow")]
+z_index = 10
+z_as_relative = false
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_f1jx3")
+Card1 = NodePath("Card1")
+Card2 = NodePath("Card2")
+Card3 = NodePath("Card3")
+Arrow = NodePath("Arrow")
+
+[node name="Card1" parent="." unique_id=860977814 instance=ExtResource("2_8jgu8")]
+position = Vector2(-640, 0)
+
+[node name="Card2" parent="." unique_id=1223146329 instance=ExtResource("2_8jgu8")]
+
+[node name="Card3" parent="." unique_id=1692827937 instance=ExtResource("2_8jgu8")]
+position = Vector2(640, 0)
+
+[node name="Arrow" type="AnimatedSprite2D" parent="." unique_id=1788332411]
+position = Vector2(0, 450)
+sprite_frames = SubResource("SpriteFrames_8anrr")
+autoplay = "default"
+frame_progress = 0.34856135
+
+[node name="CardsButtonHelp" type="AnimatedSprite2D" parent="." unique_id=1912751589]
+position = Vector2(0, 750)
+sprite_frames = SubResource("SpriteFrames_vqpif")
+autoplay = "default"
+frame_progress = 0.59471446

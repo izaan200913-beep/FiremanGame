@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dyji7o4ik7rsp"]
+
+[ext_resource type="Script" uid="uid://dovryxtcget6i" path="res://Scripts/Interactable.gd" id="1_hgfhc"]
+[ext_resource type="Texture2D" uid="uid://ddimdf7y7mktk" path="res://Assets/Sprites/ComputerChip.png" id="2_kt5bw"]
+[ext_resource type="Script" uid="uid://3dfwffreovjl" path="res://Scripts/Scrap.gd" id="3_kt5bw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prv68"]
+size = Vector2(80, 80)
+
+[node name="Interactable" type="Area2D" unique_id=1648573757]
+collision_layer = 8
+script = ExtResource("1_hgfhc")
+metadata/_custom_type_script = "uid://dovryxtcget6i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871636384]
+shape = SubResource("RectangleShape2D_prv68")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=693019205]
+texture = ExtResource("2_kt5bw")
+
+[node name="Node" type="Node" parent="." unique_id=433313805 node_paths=PackedStringArray("Parent")]
+script = ExtResource("3_kt5bw")
+Parent = NodePath("..")
+
+[connection signal="Interacted" from="." to="Node" method="_on_interactable_interacted"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

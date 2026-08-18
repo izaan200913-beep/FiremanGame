@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://lquk5pv4v6qu"
+path="res://.godot/imported/No Funds Sound (1).mp3-10458d9daae013a29ddb49ae80b236fc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/No Funds Sound (1).mp3"
+dest_files=["res://.godot/imported/No Funds Sound (1).mp3-10458d9daae013a29ddb49ae80b236fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

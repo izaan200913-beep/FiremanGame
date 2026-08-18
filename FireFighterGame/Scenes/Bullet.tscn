@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dydtomsvuqoni"]
+
+[ext_resource type="Texture2D" uid="uid://dxqbonmwmndy" path="res://Assets/Sprites/WaterDrop.png" id="1_vlxeq"]
+[ext_resource type="Script" uid="uid://bum6v1l8dqr16" path="res://Scripts/Bullet.gd" id="2_14k46"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14k46"]
+radius = 35.0
+height = 98.0
+
+[node name="Area2D" type="Area2D" unique_id=1626350997]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_14k46")
+Speed = 25.0
+MaxX = 1400.0
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="." unique_id=606274505]
+z_index = 5
+texture = ExtResource("1_vlxeq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962235504]
+position = Vector2(11.78, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_14k46")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

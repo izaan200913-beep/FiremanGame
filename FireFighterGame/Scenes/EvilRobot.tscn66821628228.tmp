@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://frdvj8k85573"]
+
+[ext_resource type="Texture2D" uid="uid://cli2h2ojupxt1" path="res://Assets/Sprites/EvilRobot.png" id="1_4xy8i"]
+[ext_resource type="Script" uid="uid://cftc32qw0t3uq" path="res://Scripts/Robot.gd" id="1_ar8jc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar8jc"]
+atlas = ExtResource("1_4xy8i")
+region = Rect2(0, 0, 170, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wi688"]
+atlas = ExtResource("1_4xy8i")
+region = Rect2(170, 0, 170, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdvfo"]
+atlas = ExtResource("1_4xy8i")
+region = Rect2(340, 0, 170, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_djarj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ar8jc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wi688")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdvfo")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xy8i"]
+radius = 88.04
+height = 285.32
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=153811356]
+script = ExtResource("1_ar8jc")
+Speed = 50.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=19207083]
+sprite_frames = SubResource("SpriteFrames_djarj")
+animation = &"Run"
+frame_progress = 0.6851123
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=355264126]
+shape = SubResource("CapsuleShape2D_4xy8i")
