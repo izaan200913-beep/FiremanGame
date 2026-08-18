@@ -5,10 +5,12 @@ class_name GameControllerNode extends Node
 @export var GUI: Node
 @export var MainSceneGUI: Control
 @export var Audio:Node
+@export var Music:AudioStreamPlayer
 const FirstScene:PackedScene = preload("res://Scenes/Game.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Music.play()
 	GlobalScript.SceneController = self
 	ChangeScene2D(FirstScene)
 

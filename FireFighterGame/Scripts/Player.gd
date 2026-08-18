@@ -39,6 +39,7 @@ func Appear():
 	Animating = false
 
 func Disappear():
+	GlobalScript.SceneController.PlaySFX("Teleport")
 	Animating = true
 	Sprite.animation = "Teleport"
 	
@@ -46,6 +47,7 @@ func Disappear():
 func Splash() -> void:
 	if WaterRegenTimer >= WaterRegen and GlobalScript.SceneController.MainScene2D.Pause == false:
 		if Input.is_action_just_pressed("Fire"):
+			GlobalScript.SceneController.PlaySFX("Shoot")
 			WaterSplashTimer = 0
 			WaterRegenTimer = 0
 			SummonBullet()

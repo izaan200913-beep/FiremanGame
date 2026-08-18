@@ -2,13 +2,19 @@
 
 [ext_resource type="Script" uid="uid://btyyslnvrfcm2" path="res://Scripts/GameControllerScript.gd" id="1_bl78f"]
 [ext_resource type="AudioStream" uid="uid://lquk5pv4v6qu" path="res://Assets/Audio/No Funds Sound (1).mp3" id="2_dyqkd"]
+[ext_resource type="AudioStream" uid="uid://dnlg8jp8horsd" path="res://Assets/Audio/Upgrade.mp3" id="2_yt86k"]
 [ext_resource type="AudioStream" uid="uid://djcoc2hyln8h" path="res://Assets/Audio/Plant Grown Sound (1).mp3" id="3_ulxep"]
+[ext_resource type="AudioStream" uid="uid://ch66ibh3rqxyl" path="res://Assets/Audio/Shoot.mp3" id="4_cbh47"]
+[ext_resource type="AudioStream" uid="uid://b5x30owdutbij" path="res://Assets/Audio/RoboDeath.mp3" id="5_g6vxi"]
+[ext_resource type="AudioStream" uid="uid://b6ejko12u6u4g" path="res://Assets/Audio/Music.mp3" id="7_a2b6f"]
+[ext_resource type="AudioStream" uid="uid://rwxiwhhlgsg4" path="res://Assets/Audio/Teleport.mp3" id="8_w6pph"]
 
-[node name="SceneController" type="Node" unique_id=225951108 node_paths=PackedStringArray("Game2D", "GUI", "Audio")]
+[node name="SceneController" type="Node" unique_id=225951108 node_paths=PackedStringArray("Game2D", "GUI", "Audio", "Music")]
 script = ExtResource("1_bl78f")
 Game2D = NodePath("World2D")
 GUI = NodePath("Control")
 Audio = NodePath("Audio")
+Music = NodePath("Audio/Music")
 
 [node name="World2D" type="Node2D" parent="." unique_id=1731356176]
 
@@ -20,8 +26,28 @@ offset_bottom = 40.0
 
 [node name="Audio" type="Node" parent="." unique_id=2548650]
 
+[node name="Upgrade" type="AudioStreamPlayer" parent="Audio" unique_id=520184893]
+stream = ExtResource("2_yt86k")
+
 [node name="RobotFinish" type="AudioStreamPlayer" parent="Audio" unique_id=107549681]
 stream = ExtResource("2_dyqkd")
+volume_db = -10.0
 
 [node name="PickUp" type="AudioStreamPlayer" parent="Audio" unique_id=2050335011]
 stream = ExtResource("3_ulxep")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="Audio" unique_id=1248977328]
+stream = ExtResource("4_cbh47")
+volume_db = -20.0
+
+[node name="RobotDeath" type="AudioStreamPlayer" parent="Audio" unique_id=1892041278]
+stream = ExtResource("5_g6vxi")
+volume_db = -15.0
+
+[node name="Music" type="AudioStreamPlayer" parent="Audio" unique_id=167409732]
+stream = ExtResource("7_a2b6f")
+volume_db = -5.0
+parameters/looping = true
+
+[node name="Teleport" type="AudioStreamPlayer" parent="Audio" unique_id=2070328402]
+stream = ExtResource("8_w6pph")

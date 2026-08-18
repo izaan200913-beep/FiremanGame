@@ -30,6 +30,7 @@ func Delete():
 
 func Death():
 	if IsEnable:
+		GlobalScript.SceneController.PlaySFX("RobotDeath")
 		IsEnable = false
 		DeathParticles.emitting = true
 		Sprite.hide()
