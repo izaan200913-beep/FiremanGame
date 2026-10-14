@@ -1,3 +1,3 @@
 # WetRobots
-Play the game here https://izaangummy.itch.io/wet-robots
+Play the game https://izaangummy.itch.io/mega-firefighter
 <br>This game was created in the godot game engine
